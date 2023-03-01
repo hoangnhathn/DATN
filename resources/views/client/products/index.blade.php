@@ -6,7 +6,7 @@
         <form acction="products">
             <div class="search_box pull-right">
                 <input name="search" value="{{request('search')}}" type="text" placeholder="Tìm kiếm"/>
-                <button type="submit"><img href="./products" src="client/images/searchicon.png" alt="" /></button>
+                <button type="submit"><img href="./products" src="client/images/home/searchicon.png" alt="" /></button>
             </div>
         </form>
     </div>
@@ -21,11 +21,11 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="client/images/{{$Product->productImages[0]->path}}" alt="" />
+                                        <img src="client/images/product/{{$Product->productImages[0]->path ?? ''}}" alt="" />
                                         @if($Product->discount != null)
-                                            <h2>Sale {{$Product->discount}}</h2>
+                                            <h2>{{$Product->discount}} VND</h2>
                                         @else
-                                            <h2>{{$Product->price}}</h2>
+                                            <h2>{{$Product->price}} VND</h2>
                                         @endif
                                         <p>{{$Product->product_name}}</p>
                                         <a href="products/product/{{$Product->id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>

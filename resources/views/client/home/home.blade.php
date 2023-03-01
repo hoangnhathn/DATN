@@ -8,11 +8,11 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="client/images/{{$Product->productImages[0]->path}}" alt="" />
+                                            <img src="client/images/product/{{$Product->productImages[0]->path ?? ''}}" alt="" />
                                             @if($Product->discount != null)
-                                                <h2>Sale {{$Product->discount}}</h2>
+                                                <h2>{{$Product->discount}} VND</h2>
                                             @else
-                                                <h2>{{$Product->price}}</h2>
+                                                <h2>{{$Product->price}} VND</h2>
                                             @endif
                                             <p>{{$Product->product_name}}</p>
                                             <a href="products/product/{{$Product->id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -41,11 +41,11 @@
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center">
-											<img src="client/images/{{$product->productImages[0]->path}}" alt="" />
+											<img src="client/images/product/{{$product->productImages[0]->path ?? ''}}" alt="" />
 													@if($product->discount != null)
-														<h2>Sale {{$product->discount}}</h2>
+														<h2>{{$product->discount}} VND</h2>
 													@else
-														<h2>{{$product->price}}</h2>
+														<h2>{{$product->price}} VND</h2>
 													@endif
 													<p>{{$product->product_name}}</p>
 													<a href="products/product/{{$product->id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -63,11 +63,11 @@
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center">
-											<img src="client/images/{{$product->productImages[0]->path}}" alt="" />
+											<img src="client/images/product/{{$product->productImages[0]->path ?? ''}}" alt="" />
 													@if($product->discount != null)
-														<h2>Sale {{$product->discount}}</h2>
+														<h2>{{$product->discount}} VND</h2>
 													@else
-														<h2>{{$product->price}}</h2>
+														<h2>{{$product->price}} VND</h2>
 													@endif
 													<p>{{$product->product_name}}</p>
 													<a href="products/product/{{$product->id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -84,11 +84,11 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="client/images/{{$product->productImages[0]->path}}" alt="" />
+                                                    <img src="client/images/product/{{$product->productImages[0]->path ?? ''}}" alt="" />
                                                     @if($product->discount != null)
-                                                        <h2>Sale {{$product->discount}}</h2>
+                                                        <h2>{{$product->discount}} VND</h2>
                                                     @else
-                                                        <h2>{{$product->price}}</h2>
+                                                        <h2>{{$product->price}} VND</h2>
                                                     @endif
                                                     <p>{{$product->product_name}}</p>
                                                     <a href="products/product/{{$product->id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -105,11 +105,11 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="client/images/{{$product->productImages[0]->path}}" alt="" />
+                                                    <img src="client/images/product/{{$product->productImages[0]->path}}" alt="" />
                                                     @if($product->discount != null)
-                                                        <h2>Sale {{$product->discount}}</h2>
+                                                        <h2>{{$product->discount}} VND</h2>
                                                     @else
-                                                        <h2>{{$product->price}}</h2>
+                                                        <h2>{{$product->price}} VND</h2>
                                                     @endif
                                                     <p>{{$product->product_name}}</p>
                                                     <a href="products/product/{{$product->id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -127,11 +127,11 @@
                                         <div class="product-image-wrapper">
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
-                                                    <img src="client/images/{{$product->productImages[0]->path}}" alt="" />
+                                                    <img src="client/images/product/{{$product->productImages[0]->path ?? ''}}" alt="" />
                                                     @if($product->discount != null)
-                                                        <h2>Sale {{$product->discount}}</h2>
+                                                        <h2>{{$product->discount}} VND</h2>
                                                     @else
-                                                        <h2>{{$product->price}}</h2>
+                                                        <h2>{{$product->price}} VND</h2>
                                                     @endif
                                                     <p>{{$product->product_name}}</p>
                                                     <a href="products/product/{{$product->id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -155,11 +155,11 @@
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="client/images/{{$Product->productImages[0]->path}}" alt="" />
+													<img src="client/images/product/{{$Product->productImages[0]->path ?? ''}}" alt="" />
 													@if($Product->discount != null)
-														<h2>Sale {{$Product->discount}}</h2>
+														<h2>{{$Product->discount}} VND</h2>
 													@else
-														<h2>{{$Product->price}}</h2>
+														<h2>{{$Product->price}} VND</h2>
 													@endif
 													<p>{{$Product->product_name}}</p>
 													<a href="products/product/{{$Product->id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -197,7 +197,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="images/home/{{$blogs->image}}" alt="" />
+                                        <img src="client/images/blog/{{$blogs->image}}" alt="" />
                                     </div>
                                 </a>
                                 <p>{{$blogs->title}}</p>
@@ -209,7 +209,7 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="address">
-                        <img src="client/images/map.png" alt="" />
+                        <img src="client/images/home/map.png" alt="" />
                         <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
                     </div>
                 </div>

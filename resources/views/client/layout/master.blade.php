@@ -19,14 +19,14 @@
 	<link href="client/css/responsive.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
+    <script src="client/js/html5shiv.js"></script>
+    <script src="client/js/respond.min.js"></script>
     <![endif]-->
-    <link rel="shortcut icon" href="client/images/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="client/images/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="client/images/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="client/images/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="client/images/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="client/images/home/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="client/images/home/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="client/images/home/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="client/images/home/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="client/images/home/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 
 <body>
@@ -62,16 +62,25 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="client/images/logo.png" alt="" /></a>
+							<a href=""><img src="client/images/home/logo.png" alt="" /></a>
 						</div>
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Tài khoản</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
-								<li><a href="./cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+                                @if(Auth::check())
+                                    <li><a href="#"><i class="fa fa-user"></i> {{Auth::user()->name}}</a></li>
+                                    <li><a href="./checkout"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
+                                    <li><a href="./cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                                    <li><a href="./account/logout" class="login-panel">
+                                            Đăng xuất
+                                        </a></li>
+                                @else
+                                    <li><a href="#"><i class="fa fa-user"></i> Tài khoản</a></li>
+                                    <li><a href="./checkout"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
+                                    <li><a href="./cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                                    <li><a href="./account/login"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+                                @endif
 							</ul>
 						</div>
 					</div>
@@ -101,7 +110,8 @@
                                         @endforeach
                                     </ul>
                                 </li>
-								<li class="dropdown"><a href="#">Giới thiệu<i class="fa fa-angle-down"></i></a></li>
+                                <li><a href="./account/my-order">Đơn hàng<i></i></a></li>
+								<li><a href="#">Giới thiệu<i></i></a></li>
 								<li><a href="404.html">Tin tức</a></li>
 								<li><a href="contact-us.html">Liên hệ</a></li>
 							</ul>
@@ -127,42 +137,13 @@
 
 						<div class="carousel-inner">
 							<div class="item active">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free E-Commerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="client/images/girl1.jpg" class="girl img-responsive" alt="" />
-									<img src="client/images/pricing.png"  class="pricing" alt="" />
-								</div>
+                                <img src="client/images/slider/slider4.png" class="girl img-responsive" alt="" />
 							</div>
+                            @foreach($slider as $slider)
 							<div class="item">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>100% Responsive Design</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
-									<img src="images/home/pricing.png"  class="pricing" alt="" />
-								</div>
+                                <img src="client/images/slider/{{$slider->path}}" class="girl img-responsive" alt="" />
 							</div>
-
-							<div class="item">
-								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free Ecommerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
-									<img src="images/home/pricing.png" class="pricing" alt="" />
-								</div>
-							</div>
+                            @endforeach
 
 						</div>
 

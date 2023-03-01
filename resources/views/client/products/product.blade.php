@@ -5,19 +5,18 @@
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
 							<div class="view-product">
-								<img src="client/images/{{$product->productImages[0]->path}}" alt="" />
+								<img src="client/images/product/{{$product->productImages[0]->path ?? ''}}"  alt="" />
 								<h3>ZOOM</h3>
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
 
 								  <!-- Wrapper for slides -->
 								    <div class="carousel-inner">
-										@foreach($product->productImages as $productImage)
 										<div class="item active">
-										  <a href=""><img src="client/images/{{$productImage->path}}" alt=""></a>
+                                            @foreach($product->productImages as $productImage)
+										  <a href=""><img width="95" src="client/images/product/{{$productImage->path ?? ''}}" alt=""></a>
+                                            @endforeach
 										</div>
-										@endforeach
-
 									</div>
 
 								  <!-- Controls -->
@@ -32,7 +31,7 @@
 						</div>
 						<div class="col-sm-7">
 							<div class="product-information"><!--/product-information-->
-								<img src="images/product-details/new.jpg" class="newarrival" alt="" />
+								<img src="client/images/home/new.jpg" class="newarrival" alt="" />
 								<h2>{{$product->product_name}}</h2>
 								<p><b>Xếp hạng:</b> {{$product->avgRating}}/5</p>
 								@if($product->qty != 0)
@@ -41,27 +40,44 @@
 									<p><b>Tình trạng:</b> Hết hàng </p>
 								@endif
 								<p><b>Màu sắc:</b> {{$product->productColor}}</p>
-								<p><b>Kích thước:</b> {{$product->productSize}}</p>
+								<p><b>Kích thước:</b> {{$product->productSize}} inches</p>
 								<p><b>Cân nặng:</b> {{$product->weight}}kg</p>
-								<p><b>Sku:</b> {{$product->sku}}</p>
 								<p><b>Category:</b> {{$product->productCategory->category_name}}</p>
 								<p><b>Tag:</b> {{$product->tag}}</p>
                                 <span>
                                     @if($product->discount != null)
-                                        <span>Sale {{$product->discount}}</span>
-                                        <span>{{$product->price}}</span>
+                                        <span>Sale: {{$product->discount}} VND</span>
+                                        <span>Giá gốc: {{$product->price}} VND</span>
                                     @else
-                                        <span>{{$product->price}}</span>
+                                        <span>{{$product->price}} VND</span>
                                     @endif
                                 </span>
+                                @if(Auth::check())
+                                <form action="./cart/add" method="post">
+                                    {{csrf_field()}}
 								<span>
 									<label>Số lượng:</label>
-									<input type="text" value="1" />
-									<button type="button" class="btn btn-fefault cart">
+									<input name="qty" type="text" value="1" />
+                                    <input name="productId_hiden" type="hidden" value="{{$product->id}}" />
+									<button type="submit" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
-										<a href="cart/add/{{$product->id}}">Thêm vào giỏ</a>
+										Thêm vào giỏ
 									</button>
 								</span>
+                                </form>
+                                @else
+                                    <form action="./account/login" method="">
+                                        <span>
+									<label>Số lượng:</label>
+									<input name="qty" type="text" value="1" />
+                                    <input name="productId_hiden" type="hidden" value="{{$product->id}}" />
+									<button type="submit" class="btn btn-fefault cart">
+										<i class="fa fa-shopping-cart"></i>
+										Thêm vào giỏ
+									</button>
+								</span>
+                                    </form>
+                                @endif
 								<a href=""><img src="client/images/share.png" class="share img-responsive"  alt="" /></a>
 							</div><!--/product-information-->
 						</div>
@@ -132,11 +148,11 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="images/home/client/images/{{$relatedProduct->productImages[0]->path}}" alt="" />
+                                        <img src="client/images/product/{{$relatedProduct->productImages[0]->path ?? ''}}" alt="" />
                                         @if($relatedProduct->discount != null)
-                                            <h2>Sale {{$relatedProduct->discount}}</h2>
+                                            <h2>Sale {{$relatedProduct->discount}} VND</h2>
                                         @else
-                                            <h2>{{$relatedProduct->price}}</h2>
+                                            <h2>{{$relatedProduct->price}} VND</h2>
                                         @endif
                                         <p>{{$relatedProduct->product_name}}</p>
                                         <a href="products/product/{{$relatedProduct->id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
