@@ -69,7 +69,7 @@
                         <li>Phí vận chuyển <span>Miễn phí</span></li>
                         <li>Thành tiền <span>{{$total}}</span></li>
                     </ul>
-                    <a class="btn btn-default check_out" href="./checkout">Thanh toán</a>
+                    <a class="btn btn-default check_out" href="./checkout">Đặt hàng</a>
                 </div>
             </div>
         </div>

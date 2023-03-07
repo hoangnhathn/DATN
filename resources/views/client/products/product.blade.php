@@ -155,7 +155,7 @@
                                             <h2>{{$relatedProduct->price}} VND</h2>
                                         @endif
                                         <p>{{$relatedProduct->product_name}}</p>
-                                        <a href="products/product/{{$relatedProduct->id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <a href="products/product/{{$relatedProduct->id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
                                     </div>
                                 </div>
                             </div>

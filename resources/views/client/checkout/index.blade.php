@@ -23,9 +23,9 @@
                                 {{csrf_field()}}
                                 <input type="hidden" id="user_id" name="user_id" value="{{Auth::user()->id ?? ''}}">
                                 <input type="text" value="{{Auth::user()->email ?? ''}}" name="email" placeholder="Email*">
-                                <input type="text" value="{{Auth::user()->name ?? ''}}" name="first_name" placeholder="First Name *">
-                                <input type="text" name="last_name" placeholder="Last Name *">
-                                <input type="text" value="{{Auth::user()->street_address ?? ''}}" name="street_address" placeholder="Address *">
+                                <input type="text" value="{{Auth::user()->name ?? ''}}" name="first_name" placeholder="Tên *">
+                                <input type="text" name="last_name" placeholder="Họ  *">
+                                <input type="text" value="{{Auth::user()->street_address ?? ''}}" name="street_address" placeholder="Địa chỉ *">
                                 <input type="text" value="{{Auth::user()->country ?? ''}}" name="country" placeholder="Quốc gia *">
                                 <input type="text" value="{{Auth::user()->postcode_zip ?? ''}}" name="postcode_zip" placeholder="Postcode Zip *">
                                 <input type="text" value="{{Auth::user()->town_city ?? ''}}" name="town_city" placeholder="Thành Phố *">

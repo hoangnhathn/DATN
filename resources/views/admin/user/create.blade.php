@@ -43,15 +43,15 @@
                                                    class="image form-control-file" style="display: none;" value="">
                                             <input type="hidden" name="image_old" value="">
                                             <small class="form-text text-muted">
-                                                Click on the image to change (required)
+                                                Click vào ảnh để thay đổi
                                             </small>
                                         </div>
                                     </div>
 
                                     <div class="position-relative row form-group">
-                                        <label for="name" class="col-md-3 text-md-right col-form-label">Name</label>
+                                        <label for="name" class="col-md-3 text-md-right col-form-label">Tên</label>
                                         <div class="col-md-9 col-xl-8">
-                                            <input required name="name" id="name" placeholder="Name" type="text"
+                                            <input required name="name" id="name" placeholder="Tên" type="text"
                                                    class="form-control" value="">
                                         </div>
                                     </div>
@@ -67,18 +67,18 @@
 
                                     <div class="position-relative row form-group">
                                         <label for="password"
-                                               class="col-md-3 text-md-right col-form-label">Password</label>
+                                               class="col-md-3 text-md-right col-form-label">Mật khẩu</label>
                                         <div class="col-md-9 col-xl-8">
-                                            <input name="password" id="password" placeholder="Password" type="password"
+                                            <input name="password" id="password" placeholder="Mật khẩu" type="password"
                                                    class="form-control" value="">
                                         </div>
                                     </div>
 
                                     <div class="position-relative row form-group">
                                         <label for="password_confirmation"
-                                               class="col-md-3 text-md-right col-form-label">Confirm Password</label>
+                                               class="col-md-3 text-md-right col-form-label">Xác nhận mật khẩu</label>
                                         <div class="col-md-9 col-xl-8">
-                                            <input name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" type="password"
+                                            <input name="password_confirmation" id="password_confirmation" placeholder="Xác nhận mật khẩu" type="password"
                                                    class="form-control" value="">
                                         </div>
                                     </div>
@@ -86,20 +86,20 @@
 
                                     <div class="position-relative row form-group">
                                         <label for="country"
-                                               class="col-md-3 text-md-right col-form-label">Country</label>
+                                               class="col-md-3 text-md-right col-form-label">Quốc gia</label>
                                         <div class="col-md-9 col-xl-8">
-                                            <input name="country" id="country" placeholder="Country"
+                                            <input name="country" id="country" placeholder="Quốc gia"
                                                    type="text" class="form-control" value="">
                                         </div>
                                     </div>
 
                                     <div class="position-relative row form-group">
                                         <label for="street_address" class="col-md-3 text-md-right col-form-label">
-                                            Street Address
+                                            Địa chỉ
                                         </label>
                                         <div class="col-md-9 col-xl-8">
                                             <input name="street_address" id="street_address"
-                                                   placeholder="Street Address" type="text" class="form-control"
+                                                   placeholder="Địa chỉ" type="text" class="form-control"
                                                    value="">
                                         </div>
                                     </div>
@@ -117,19 +117,19 @@
 
                                     <div class="position-relative row form-group">
                                         <label for="town_city" class="col-md-3 text-md-right col-form-label">
-                                            Town City
+                                            Thành phố
                                         </label>
                                         <div class="col-md-9 col-xl-8">
-                                            <input name="town_city" id="town_city" placeholder="Town City"
+                                            <input name="town_city" id="town_city" placeholder="Thành phố"
                                                    type="text" class="form-control" value="">
                                         </div>
                                     </div>
 
                                     <div class="position-relative row form-group">
                                         <label for="phone"
-                                               class="col-md-3 text-md-right col-form-label">Phone</label>
+                                               class="col-md-3 text-md-right col-form-label">Điện thoại</label>
                                         <div class="col-md-9 col-xl-8">
-                                            <input required name="phone" id="phone" placeholder="Phone" type="tel"
+                                            <input required name="phone" id="phone" placeholder="Điên thoại" type="tel"
                                                    class="form-control" value="">
                                         </div>
                                     </div>
@@ -152,7 +152,7 @@
 
                                     <div class="position-relative row form-group">
                                         <label for="description"
-                                               class="col-md-3 text-md-right col-form-label">Description</label>
+                                               class="col-md-3 text-md-right col-form-label">Mô tả</label>
                                         <div class="col-md-9 col-xl-8">
                                             <textarea name="description" id="description" class="form-control"></textarea>
                                         </div>
