@@ -1,9 +1,9 @@
 @extends('client.layout.master')
 @section('title', 'Product')
 @section('content')
-				<div class="col-sm-9 padding-right">
+				<div class="col-sm-12 padding-right">
 					<div class="product-details"><!--product-details-->
-						<div class="col-sm-5">
+						<div class="col-sm-8">
 							<div class="view-product">
 								<img src="client/images/product/{{$product->productImages[0]->path ?? ''}}"  alt="" />
 								<h3>ZOOM</h3>
@@ -29,7 +29,7 @@
 							</div>
 
 						</div>
-						<div class="col-sm-7">
+						<div class="col-sm-4">
 							<div class="product-information"><!--/product-information-->
 								<img src="client/images/home/new.jpg" class="newarrival" alt="" />
 								<h2>{{$product->product_name}}</h2>
@@ -150,7 +150,7 @@
                                     <div class="productinfo text-center">
                                         <img src="client/images/product/{{$relatedProduct->productImages[0]->path ?? ''}}" alt="" />
                                         @if($relatedProduct->discount != null)
-                                            <h2>Sale {{$relatedProduct->discount}} VND</h2>
+                                            <h2>{{$relatedProduct->discount}} VND</h2>
                                         @else
                                             <h2>{{$relatedProduct->price}} VND</h2>
                                         @endif
