@@ -849,7 +849,9 @@ h2.title {
 	border:1px solid #F7F7F5;
 	overflow: hidden;
 	margin-bottom:30px;
+    position: relative;
 }
+
 
 .single-products {
   position: relative;
@@ -866,6 +868,7 @@ h2.title {
 	font-family: 'Roboto', sans-serif;
 	font-size: 24px;
 	font-weight: 700;
+    margin-top:0px;
 }
 .product-overlay h2{
 	color: #fff;
@@ -880,10 +883,14 @@ h2.title {
   font-size: 14px;
   font-weight: 400;
   color: #696763;
+  margin-bottom:0px;
 }
 
 .productinfo img{
   width: 100%;
+  height: 125px;
+  object-fit: cover;
+
 }
 
 .productinfo{

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>@yield('title') | Thống Nhất</title>
+    <title>@yield('title') | Hoàng Nhất</title>
     <!---<script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">--->
     <link href="client/css/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +38,7 @@
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
 								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> thongnhat@gmail.com</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> hoangnhat@gmail.com</a></li>
 							</ul>
 						</div>
 					</div>
@@ -62,7 +62,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href=""><img src="client/images/home/logo.png" alt="" /></a>
+							<a href=""><img src="client/images/home/logo.png" alt="" width="100" /></a>
 						</div>
 					</div>
 					<div class="col-sm-8">
@@ -107,6 +107,13 @@
                                     <ul role="menu" class="sub-menu">
                                         @foreach($categories as $categories)
                                         <li><a href="products/category/{{$categories->category_name}}">{{$categories->category_name}}</a></li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="./products">Hãng sản xuất<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        @foreach($brands as $brands)
+                                        <li><a href="products/brand/{{$brands->name}}">{{$brands->name}}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>
@@ -176,17 +183,18 @@
                             @endforeach
 						</div><!--/category-products-->
 
-						<div class="price-range"><!--price-range-->
+						<!--price-range
+                            <div class="price-range">
 							<h2>Mức giá</h2>
 							<div class="well text-center">
 								 <input type="text" class="span2" data-min-value="0" data-max-value="{{str_replace("$",'',request('data-slider-value'))}}" data-slider-min="0" data-slider-max="20" data-slider-step="5" data-slider-value="[0,20000000]" id="sl2" ><br />
 								 <b class="pull-left">0tr VNĐ</b> <b class="pull-right">20tr VNĐ</b>
 							</div>
                             <h2><button type="submit">Tìm</button></h2>
-						</div><!--/price-range-->
-
+						</div>
+                        -->
 						<div class="shipping text-center"><!--shipping-->
-							<img src="client/images/shipping.jpg" alt="" />
+							<img src="client/images/home/shipping.jpg" alt=""/>
 						</div><!--/shipping-->
 
 					</div>
@@ -258,7 +266,7 @@
 					</div>
 					<div class="col-sm-3 col-sm-offset-1">
 						<div class="single-widget">
-							<h2>Xe Đạp Thống Nhất</h2>
+							<h2>Hoàng Nhất</h2>
 							<form action="#" class="searchform">
 								<input type="text" placeholder="Địa chỉ email của bạn" />
 								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
@@ -274,7 +282,7 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2023 Thong Nhat Inc. All rights reserved.</p>
+					<p class="pull-left">Copyright © 2023 Hoang Nhat Inc. All rights reserved.</p>
 					<p class="pull-right">Designed by <span><a target="_blank" href="#">Nhat</a></span></p>
 				</div>
 			</div>

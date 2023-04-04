@@ -4,6 +4,7 @@ namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
 use App\Services\Order\OrderServiceInterface;
+use App\Services\Brand\BrandServiceInterface;
 use App\Services\ProductCategory\ProductCategoryServiceInterface;
 use App\Services\User\UserServiceInterface;
 use App\Ultilities\Constant;
@@ -15,26 +16,31 @@ class AccountController extends Controller
     private $productCategoryService;
     private $userService;
     private $orderService;
+    private $brandService;
 
     public function __construct(ProductCategoryServiceInterface $productCategoryService,
                                 UserServiceInterface $userService,
-                                OrderServiceInterface $orderService)
+                                OrderServiceInterface $orderService,
+                                BrandServiceInterface $brandService)
     {
         $this->productCategoryService=$productCategoryService;
         $this->userService=$userService;
         $this->orderService = $orderService;
+        $this->brandService=$brandService;
     }
 
     public function login()
     {
         $categories=$this->productCategoryService->all();
-        return view('client.account.login',compact('categories'));
+        $brands=$this->brandService->all();
+        return view('client.account.login',compact('categories','brands'));
     }
 
     public function register()
     {
         $categories=$this->productCategoryService->all();
-        return view('client.account.register',compact('categories'));
+        $brands=$this->brandService->all();
+        return view('client.account.register',compact('categories','brands'));
     }
 
     public function checkLogin(Request $request)
@@ -83,13 +89,15 @@ class AccountController extends Controller
     {
         $orders = $this->orderService->getOrderByUserId(Auth::id());
         $categories=$this->productCategoryService->all();
-        return view('client.account.my-order.my_order',compact('categories','orders'));
+        $brands=$this->brandService->all();
+        return view('client.account.my-order.my_order',compact('categories','orders','brands'));
     }
 
     public function myOrderShow($id)
     {
         $order = $this->orderService->find($id);
         $categories=$this->productCategoryService->all();
-        return view('client.account.my-order.orderDetail',compact('categories','order'));
+        $brands=$this->brandService->all();
+        return view('client.account.my-order.orderDetail',compact('categories','order','brands'));
     }
 }

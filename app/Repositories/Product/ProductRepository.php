@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Product;
 
+use App\Models\Brand;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Repositories\BaseRepository;
@@ -46,6 +47,13 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     public function getProductsByCategory($categoryName, $request)
     {
        $products = ProductCategory::where('category_name', $categoryName)->first()->products->toQuery();
+       $products=$products->paginate(9);
+       return $products;
+    }
+
+    public function getProductsByBrand($brandName, $request)
+    {
+       $products = Brand::where('name', $brandName)->first()->products->toQuery();
        $products=$products->paginate(9);
        return $products;
     }

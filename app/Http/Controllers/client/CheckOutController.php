@@ -4,6 +4,7 @@ namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
 use App\Services\Order\OrderServiceInterface;
+use App\Services\Brand\BrandServiceInterface;
 use App\Services\OrderDetail\OrderDetailServiceInterface;
 use App\Services\Product\ProductServiceInterface;
 use App\Services\ProductCategory\ProductCategoryServiceInterface;
@@ -17,25 +18,28 @@ class CheckOutController extends Controller
     private $productCategoryService;
     private $orderService;
     private $orderDetailService;
+    private $brandService;
     public function __construct(ProductServiceInterface $productService,
                                 ProductCategoryServiceInterface $productCategoryService,
                                 OrderServiceInterface $orderService,
-                                OrderDetailServiceInterface $orderDetailService)
+                                OrderDetailServiceInterface $orderDetailService,
+                                BrandServiceInterface $brandService)
     {
         $this->productService = $productService;
         $this->productCategoryService=$productCategoryService;
         $this->orderService=$orderService;
         $this->orderDetailService=$orderDetailService;
+        $this->brandService=$brandService;
     }
     public  function index()
     {
         $carts = Cart::content();
         $total =Cart::total();
         $subtotal =Cart::subtotal();
-
+        $brands=$this->brandService->all();
         $categories=$this->productCategoryService->all();
 
-        return view('client.checkout.index',compact('carts','total','subtotal','categories'));
+        return view('client.checkout.index',compact('carts','total','subtotal','categories','brands'));
     }
 
     public function addOrder(Request $request)
@@ -65,7 +69,8 @@ class CheckOutController extends Controller
     public function result()
     {
         $notification = session('notification');
+        $brands=$this->brandService->all();
         $categories=$this->productCategoryService->all();
-        return view('client.checkout.result',compact('notification','categories'));
+        return view('client.checkout.result',compact('notification','categories','brands'));
     }
 }

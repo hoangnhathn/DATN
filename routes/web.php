@@ -27,6 +27,7 @@ Route::prefix('products')->group(function ()
     Route::post('/product/{id}', [ProductController::class,'postComment']);
     Route::get('/', [ProductController::class,'index']);
     Route::get('/category/{category_name}', [ProductController::class,'categories']);
+    Route::get('/brand/{brand_name}', [ProductController::class,'brands']);
 });
 
 Route::prefix('cart')->group(function ()
@@ -68,6 +69,7 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function (){
     Route::redirect('','admin/user');
     Route::resource('user', \App\Http\Controllers\admin\UserController::class);
     Route::resource('category',\App\Http\Controllers\admin\ProductCategoryController::class);
+    Route::resource('brand',\App\Http\Controllers\admin\BrandController::class);
     Route::resource('product',\App\Http\Controllers\admin\ProductController::class);
     Route::resource('product/{product_id}/image',\App\Http\Controllers\admin\ProductImageController::class);
     Route::resource('product/{product_id}/detail',\App\Http\Controllers\admin\ProductDetailController::class);

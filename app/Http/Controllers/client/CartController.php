@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
+use App\Services\Brand\BrandServiceInterface;
 use App\Services\Product\ProductServiceInterface;
 use App\Services\ProductCategory\ProductCategoryServiceInterface;
 use Illuminate\Http\Request;
@@ -17,11 +18,14 @@ class CartController extends Controller
 {
     private $productService;
     private $productCategoryService;
+    private $brandService;
     public function __construct(ProductServiceInterface $productService,
-                                ProductCategoryServiceInterface $productCategoryService)
+                                ProductCategoryServiceInterface $productCategoryService,
+                                BrandServiceInterface $brandService)
     {
         $this->productService = $productService;
         $this->productCategoryService=$productCategoryService;
+        $this->brandService=$brandService;
     }
 
     public function index()
@@ -29,10 +33,10 @@ class CartController extends Controller
         $carts = Cart::content();
         $total =Cart::total();
         $subtotal =Cart::subtotal();
-
+        $brands=$this->brandService->all();
         $categories=$this->productCategoryService->all();
 
-        return view('client.cart.cart',compact('carts','total','subtotal','categories'));
+        return view('client.cart.cart',compact('carts','total','subtotal','categories','brands'));
     }
 
     /*public function add(Request $request)

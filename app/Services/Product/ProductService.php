@@ -56,9 +56,9 @@ class ProductService extends BaseService implements ProductServiceInterface
         return [
             "kid"=>$this->repository->getProductsByCat(1),
             "adult"=>$this->repository->getProductsByCat(2),
-            "men"=>$this->repository->getProductsByCat(3),
-            "women"=>$this->repository->getProductsByCat(4),
-            "sport"=>$this->repository->getProductsByCat(5)
+            "motorbike"=>$this->repository->getProductsByCat(3),
+            "scooter"=>$this->repository->getProductsByCat(4),
+            "Manual clutch"=>$this->repository->getProductsByCat(5)
         ];
     }
 
@@ -70,6 +70,11 @@ class ProductService extends BaseService implements ProductServiceInterface
     public function getProductsByCategory($categoryName, $request)
     {
         return $this->repository->getProductsByCategory($categoryName,$request);
+    }
+
+    public function getProductsByBrand($brandName, $request)
+    {
+        return $this->repository->getProductsByBrand($brandName,$request);
     }
 
 }

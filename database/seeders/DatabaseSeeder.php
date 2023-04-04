@@ -129,27 +129,45 @@ class DatabaseSeeder extends Seeder
             ]);
 
 
+            DB::table('brands')->insert([
+                [
+                    'name' => 'Thống Nhất',
+                ],
+                [
+                    'name' => 'Honda',
+                ],
+                [
+                    'name' => 'Yamaha',
+                ],
+
+            ]);
+
+
             DB::table('products_category')->insert([
                 [
-                    'category_name' => 'Trẻ em',
+                    'category_name' => 'Xe đạp trẻ em',
                 ],
                 [
-                    'category_name' => 'Người lớn',
+                    'category_name' => 'Xe đạp người lớn',
                 ],
                 [
-                    'category_name' => 'Con trai',
+                    'category_name' => 'Xe đạp thể thao',
                 ],
                 [
-                    'category_name' => 'Con gái',
+                    'category_name' => 'Xe máy',
                 ],
                 [
-                    'category_name' => 'Thể thao',
+                    'category_name' => 'Xe ga',
+                ],
+                [
+                    'category_name' => 'Xe côn tay',
                 ],
             ]);
 
             DB::table('products')->insert([
                 [
                     'id' => 1,
+                    'brand_id' => 1,
                     'category_id' => 1,
                     'product_name' => 'Princess 12″',
                     'description' => '',
@@ -164,6 +182,7 @@ class DatabaseSeeder extends Seeder
                 ],
                 [
                     'id' => 2,
+                    'brand_id' => 1,
                     'category_id' => 2,
                     'product_name' => 'M 26″-01',
                     'description' => null,
@@ -178,7 +197,8 @@ class DatabaseSeeder extends Seeder
                 ],
                 [
                     'id' => 3,
-                    'category_id' => 3,
+                    'brand_id' => 1,
+                    'category_id' => 2,
                     'product_name' => 'SLX 26-01',
                     'description' => null,
                     'content' => null,
@@ -192,7 +212,8 @@ class DatabaseSeeder extends Seeder
                 ],
                 [
                     'id' => 4,
-                    'category_id' => 4,
+                    'brand_id' => 1,
+                    'category_id' => 2,
                     'product_name' => 'New 24″',
                     'description' => null,
                     'content' => null,
@@ -200,13 +221,14 @@ class DatabaseSeeder extends Seeder
                     'qty' => 20,
                     'discount' => null,
                     'weight' => 15,
-                    'sku' => null,
+                    'sku' => '00014',
                     'featured' => true,
                     'tag' => 'Bicycle',
                 ],
                 [
                     'id' => 5,
-                    'category_id' => 5,
+                    'brand_id' => 1,
+                    'category_id' => 3,
                     'product_name' => "MTB 20″ – 03",
                     'description' => null,
                     'content' => null,
@@ -214,12 +236,13 @@ class DatabaseSeeder extends Seeder
                     'qty' => 20,
                     'discount' => null,
                     'weight' => 11.25,
-                    'sku' => null,
+                    'sku' => '00015',
                     'featured' => false,
                     'tag' => 'Bicycle',
                 ],
                 [
                     'id' => 6,
+                    'brand_id' => 1,
                     'category_id' => 1,
                     'product_name' => 'Princess 16″',
                     'description' => null,
@@ -228,12 +251,13 @@ class DatabaseSeeder extends Seeder
                     'qty' => 20,
                     'discount' => null,
                     'weight' => 10,
-                    'sku' => null,
+                    'sku' => '00016',
                     'featured' => true,
                     'tag' => 'Bicycle',
                 ],
                 [
                     'id' => 7,
+                    'brand_id' => 1,
                     'category_id' => 1,
                     'product_name' => 'Kitten 20″',
                     'description' => null,
@@ -242,12 +266,13 @@ class DatabaseSeeder extends Seeder
                     'qty' => 20,
                     'discount' => null,
                     'weight' => 10,
-                    'sku' => null,
+                    'sku' => '00017',
                     'featured' => true,
                     'tag' => 'Bicycle',
                 ],
                 [
                     'id' => 8,
+                    'brand_id' => 1,
                     'category_id' => 1,
                     'product_name' => 'Neo 20″ – 04',
                     'description' => null,
@@ -256,12 +281,13 @@ class DatabaseSeeder extends Seeder
                     'qty' => 20,
                     'discount' => null,
                     'weight' => 10,
-                    'sku' => null,
+                    'sku' => '00018',
                     'featured' => true,
                     'tag' => 'Bicycle',
                 ],
                 [
                     'id' => 9,
+                    'brand_id' => 1,
                     'category_id' => 1,
                     'product_name' => 'TE 16″ – 02',
                     'description' => null,
@@ -270,9 +296,54 @@ class DatabaseSeeder extends Seeder
                     'qty' => 20,
                     'discount' => null,
                     'weight' => 10,
-                    'sku' => null,
+                    'sku' => '00019',
                     'featured' => true,
                     'tag' => 'Bicycle',
+                ],
+                [
+                    'id' => 10,
+                    'brand_id' => 2,
+                    'category_id' => 4,
+                    'product_name' => 'Honda Wave RSX Fi 110',
+                    'description' => null,
+                    'content' => null,
+                    'price' => 26500000,
+                    'qty' => 20,
+                    'discount' => null,
+                    'weight' => 50,
+                    'sku' => '00020',
+                    'featured' => true,
+                    'tag' => 'Motobike',
+                ],
+                [
+                    'id' => 11,
+                    'brand_id' => 3,
+                    'category_id' => 5,
+                    'product_name' => 'Yamaha Janus',
+                    'description' => null,
+                    'content' => null,
+                    'price' => 28600000,
+                    'qty' => 20,
+                    'discount' => null,
+                    'weight' => 50,
+                    'sku' => '00021',
+                    'featured' => true,
+                    'tag' => 'Motobike',
+                ],
+                [
+                    'id' => 12,
+                    'brand_id' => 2,
+                    'category_id' => 6,
+                    'product_name' => 'Honda Winner X',
+                    'description' => null,
+                    'content' => null,
+                    'price' => 329900000,
+                    'qty' => 20,
+                    'discount' => null,
+                    'weight' => 50,
+                    'sku' => '00022',
+                    'featured' => true,
+                    'tag' => 'Motobike',
                 ],
             ]);
 
@@ -384,6 +455,30 @@ class DatabaseSeeder extends Seeder
                 [
                     'product_id' => 9,
                     'path' => 'product9_3.png',
+                ],
+                [
+                    'product_id' => 10,
+                    'path' => 'product10_1.png',
+                ],
+                [
+                    'product_id' => 10,
+                    'path' => 'product10_2.png',
+                ],
+                [
+                    'product_id' => 11,
+                    'path' => 'product11_1.png',
+                ],
+                [
+                    'product_id' => 11,
+                    'path' => 'product11_2.png',
+                ],
+                [
+                    'product_id' => 12,
+                    'path' => 'product12_1.png',
+                ],
+                [
+                    'product_id' => 12,
+                    'path' => 'product12_2.png',
                 ],
             ]);
 

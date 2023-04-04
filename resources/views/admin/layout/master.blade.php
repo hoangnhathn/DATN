@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Admin - Thống Nhất</title>
+    <title>Admin - Hoàng Nhất</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description"
@@ -26,7 +26,7 @@
 <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
     <div class="app-header header-shadow">
         <div class="app-header__logo">
-            <div class="">Thống Nhất</div>
+            <div class="">Hoàng Nhất</div>
             <div class="header__pane ml-auto">
                 <div>
                     <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
@@ -694,6 +694,11 @@
                                 <li>
                                     <a href="./admin/category" class="{{(request()->segment(2)=='category')?'mm-active':''}}">
                                         <i class="metismenu-icon"></i>Loại sản phẩm
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="./admin/brand" class="{{(request()->segment(2)=='brand')?'mm-active':''}}">
+                                        <i class="metismenu-icon"></i>Hãng sản xuất
                                     </a>
                                 </li>
                             </ul>

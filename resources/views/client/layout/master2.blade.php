@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>@yield('title') | Thống Nhất</title>
+    <title>@yield('title') | Hoàng Nhất</title>
     <!---<script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">--->
     <link href="client/css/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +38,7 @@
                     <div class="contactinfo">
                         <ul class="nav nav-pills">
                             <li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                            <li><a href="#"><i class="fa fa-envelope"></i> thongnhat@gmail.com</a></li>
+                            <li><a href="#"><i class="fa fa-envelope"></i> hoangnhat@gmail.com</a></li>
                         </ul>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href=""><img src="client/images/home/logo.png" alt="" /></a>
+                        <a href=""><img src="client/images/home/logo.png" alt="" width="100"/></a>
                     </div>
                 </div>
                 <div class="col-sm-8">
@@ -107,6 +107,13 @@
                                 <ul role="menu" class="sub-menu">
                                     @foreach($categories as $categories)
                                         <li><a href="products/category/{{$categories->category_name}}">{{$categories->category_name}}</a></li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="./products">Hãng sản xuất<i class="fa fa-angle-down"></i></a>
+                                <ul role="menu" class="sub-menu">
+                                    @foreach($brands as $brands)
+                                    <li><a href="products/brand/{{$brands->name}}">{{$brands->name}}</a></li>
                                     @endforeach
                                 </ul>
                             </li>
@@ -179,7 +186,7 @@
                 </div>
                 <div class="col-sm-3 col-sm-offset-1">
                     <div class="single-widget">
-                        <h2>Xe Đạp Thống Nhất</h2>
+                        <h2>Hoàng Nhất</h2>
                         <form action="#" class="searchform">
                             <input type="text" placeholder="Địa chỉ email của bạn" />
                             <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
@@ -195,7 +202,7 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <p class="pull-left">Copyright © 2023 Thong Nhat Inc. All rights reserved.</p>
+                <p class="pull-left">Copyright © 2023 Hoang Nhat Inc. All rights reserved.</p>
                 <p class="pull-right">Designed by <span><a target="_blank" href="#">Nhat</a></span></p>
             </div>
         </div>

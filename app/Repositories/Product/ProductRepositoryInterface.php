@@ -11,4 +11,5 @@ interface ProductRepositoryInterface extends RepositoryInterface
     public function getProductsByCat(int $categoryId);
     public function getProductOnIndex($request);
     public function getProductsByCategory($categoryName, $request);
+    public function getProductsByBrand($brandName, $request);
 }
