@@ -179,8 +179,10 @@
                                     <div class="panel-heading">
                                         <h4 class="panel-title"><a href="products/category/{{$categories->category_name}}">{{$categories->category_name}}</a></h4>
                                     </div>
+
                                 </div>
                             @endforeach
+
 						</div><!--/category-products-->
 
 						<!--price-range

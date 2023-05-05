@@ -56,9 +56,9 @@ class ProductService extends BaseService implements ProductServiceInterface
         return [
             "kid"=>$this->repository->getProductsByCat(1),
             "adult"=>$this->repository->getProductsByCat(2),
-            "motorbike"=>$this->repository->getProductsByCat(3),
-            "scooter"=>$this->repository->getProductsByCat(4),
-            "Manual clutch"=>$this->repository->getProductsByCat(5)
+            "motorbike"=>$this->repository->getProductsByCat(4),
+            "scooter"=>$this->repository->getProductsByCat(5),
+            "ManualClutch"=>$this->repository->getProductsByCat(6)
         ];
     }
 

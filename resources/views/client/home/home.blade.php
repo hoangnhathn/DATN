@@ -9,7 +9,8 @@
                 <div class="product-image-wrapper">
                     <div class="single-products">
                         <div class="productinfo text-center">
-                            <img src="client/images/product/{{ $Product->productImages[0]->path ?? '' }}" alt="" width="50" />
+                            <img src="client/images/product/{{ $Product->productImages[0]->path ?? '' }}" alt=""
+                                width="50" />
                             @if ($Product->discount != null)
                                 <h2>{{ $Product->discount }} VND</h2>
                             @else
@@ -33,9 +34,9 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#kid" data-toggle="tab">Xe đạp trẻ em</a></li>
                 <li><a href="#adult" data-toggle="tab">Xe đạp người lớn</a></li>
-                <li><a href="#men" data-toggle="tab">Xe đạp nam</a></li>
-                <li><a href="#women" data-toggle="tab">Xe đạp nữ</a></li>
-                <li><a href="#sport" data-toggle="tab">Xe đạp thể thao</a></li>
+                <li><a href="#motorbike" data-toggle="tab">Xe máy</a></li>
+                <li><a href="#scooter" data-toggle="tab">Xe ga</a></li>
+                <li><a href="#Manual clutch" data-toggle="tab">Xe côn tay</a></li>
             </ul>
         </div>
         <div class="tab-content">
@@ -133,8 +134,8 @@
                 @endforeach
             </div>
 
-            <div class="tab-pane fade" id="Manual clutch">
-                @foreach ($productsByCat['Manual clutch'] as $product)
+            <div class="tab-pane fade" id="ManualClutch">
+                @foreach ($productsByCat['ManualClutch'] as $product)
                     <div class="col-sm-3">
                         <div class="product-image-wrapper">
                             <div class="single-products">
@@ -161,7 +162,7 @@
     <!--/category-tab-->
 
     <div class="recommended_items">
-        <!--recommended_items-->
+        <!--hit_items-->
         <h2 class="title text-center">Sản phẩm hot</h2>
         <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -198,6 +199,46 @@
         </div>
     </div>
     <!--/recommended_items-->
+    @if (Auth::check())
+        <h2 class="title text-center">Dành cho bạn</h2>
+        <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="item active">
+                    @foreach ($productRecomment as $Product)
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="client/images/product/{{ $Product->productImages[0]->path ?? '' }}"
+                                            alt="" />
+                                        @if ($Product->discount != null)
+                                            <h2>{{ $Product->discount }} VND</h2>
+                                        @else
+                                            <h2>{{ $Product->price }} VND</h2>
+                                        @endif
+                                        <p>{{ $Product->product_name }}</p>
+                                        <a href="products/product/{{ $Product->id }}"
+                                            class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm
+                                            vào
+                                            giỏ</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </div>
+        </div>
+    @else
+    @endif
+
 @endsection
 
 @section('top_footer')

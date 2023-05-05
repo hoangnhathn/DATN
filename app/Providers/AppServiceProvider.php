@@ -18,6 +18,8 @@ use App\Repositories\User\UserRepository;
 use App\Repositories\User\UserRepositoryInterface;
 use App\Repositories\Brand\BrandRepository;
 use App\Repositories\Brand\BrandRepositoryInterface;
+use App\Repositories\ProductRecommendation\ProductRecommendationRepository;
+use App\Repositories\ProductRecommendation\ProductRecommendationRepositoryInterface;
 use App\Services\Blog\BlogService;
 use App\Services\Blog\BlogServiceInterface;
 use App\Services\Order\OrderService;
@@ -34,6 +36,8 @@ use App\Services\User\UserService;
 use App\Services\User\UserServiceInterface;
 use App\Services\Brand\BrandService;
 use App\Services\Brand\BrandServiceInterface;
+use App\Services\ProductRecommendation\ProductRecommendationService;
+use App\Services\ProductRecommendation\ProductRecommendationServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -131,6 +135,17 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(
             UserServiceInterface::class,
             UserService::class
+        );
+
+        //ProductRecommendation
+        $this->app->singleton(
+            ProductRecommendationRepositoryInterface::class,
+            ProductRecommendationRepository::class
+        );
+
+        $this->app->singleton(
+            ProductRecommendationServiceInterface::class,
+            ProductRecommendationService::class
         );
     }
 

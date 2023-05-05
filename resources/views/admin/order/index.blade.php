@@ -48,7 +48,7 @@
                                     <thead>
                                     <tr>
                                         <th class="text-center">ID</th>
-                                        <th>Khách hàng / Sản phẩm</th>
+                                        <th >Khách hàng / Sản phẩm</th>
                                         <th class="text-center">Địa chỉ</th>
                                         <th class="text-center">Tổng</th>
                                         <th class="text-center">Trang thái</th>

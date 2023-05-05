@@ -9,6 +9,7 @@ use App\Services\OrderDetail\OrderDetailServiceInterface;
 use App\Services\Product\ProductServiceInterface;
 use App\Services\ProductCategory\ProductCategoryServiceInterface;
 use App\Ultilities\Constant;
+use App\Ultilities\VNPay;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
@@ -61,9 +62,60 @@ class CheckOutController extends Controller
             $this->orderDetailService->create($data);
         }
 
-        Cart::destroy();
+        if($request->payment_type=='pay_later'){
 
-        return redirect('checkout/result')->with('notification','Đặt hàng thành công!');
+            // đường dẫn đến tệp tin CSV
+            $file_path = 'C:/DATN/DATN/DataCSV/data.csv';
+            // mở tệp tin CSV
+            $file = fopen($file_path, 'a');
+
+            foreach ($carts as $cart){
+
+            // dữ liệu muốn thêm vào
+            $data = array($request->user_id, $cart->id, $cart->qty);
+
+            // ghi dữ liệu vào tệp tin
+            fputcsv($file, $data);
+
+            }
+            // đóng tệp tin
+            fclose($file);
+
+            Cart::destroy();
+
+            return redirect('checkout/result')->with('notification','Đặt hàng thành công!');
+        }
+
+        if($request->payment_type=='online_payment'){
+            $data_url= VNPay::vnpay_create_payment([
+                'vnp_TxnRef' => $order->id,
+                'vnp_OrderInfo' => 'Mô tả',
+                'vnp_Amount' => Cart::total(0, '', ''), //Tổng giá đơn hàng
+            ]);
+
+            return redirect()->to($data_url);
+        }
+
+    }
+
+    public function vnPayCheck(Request $request){
+        //Lấy data từ URL (do VNPay gửi về qua $vnd_Returnurl)
+        $vnp_ResponseCode = $request->get('vnp_ResponseCode'); //mã phản hồi kết quả thanh toán 00 = Thành công
+        $vnp_TxnRef = $request->get('vnp_TxnRef'); //order_id
+        $vnp_Amount = $request->get('vnp_Amount'); //Số tiền thanh toán
+
+        //Kiểm tra data, xem kết quả giao dịch trả về từ VNPay hợp lệ ko
+        if($vnp_ResponseCode != null){
+            if($vnp_ResponseCode == 00){
+                Cart::destroy();
+
+                return redirect('checkout/result')->with('notification','Đặt hàng thành công!');
+            } else{
+                $this->orderService->delete($vnp_TxnRef);
+
+                return redirect('checkout/result')->with('notification','Đặt hàng không thành công!');
+            }
+        }
     }
 
     public function result()
